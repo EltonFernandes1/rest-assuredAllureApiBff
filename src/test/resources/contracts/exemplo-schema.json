@@ -1,0 +1,32 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#" ,
+  "type" : "object" ,
+  "properties" : {
+    "id" : {
+      "type" : "integer"
+    },
+    "petId" : {
+      "tipo" : "inteiro"
+    },
+    "quantidade" : {
+      "tipo" : "inteiro"
+    },
+    "shipDate" : {
+      "type" : "string"
+    },
+    "status" : {
+      "tipo" : "string"
+    },
+    "completo" : {
+      "tipo" : "booleano"
+    }
+  },
+  "necessário" : [
+    "id" ,
+    "petId" ,
+    "quantidade" ,
+    "shipDate" ,
+    "status" ,
+    "complete"
+  ]
+}

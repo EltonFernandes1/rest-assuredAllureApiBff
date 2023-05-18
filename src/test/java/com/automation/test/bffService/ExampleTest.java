@@ -56,7 +56,6 @@ public class ExampleTest {
                 .body("Status", equalTo(401));
 
     }
-
         @Test
         @Story("Aceitação")
         @DisplayName("Teste de acesso à API de Falha de bolsas")
