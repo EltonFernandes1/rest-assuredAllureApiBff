@@ -1,7 +1,10 @@
 package com.automation.test.apiService;
 
+import static com.automation.infrastructure.config.Configuration.BASE_URL;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+
+import com.automation.infrastructure.config.HttpStatus;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.restassured.RestAssured;
@@ -14,7 +17,9 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.api.Tag;
+
 import io.restassured.module.jsv.JsonSchemaValidator;
+
 
 @DisplayName("Exemplo Execucao API")
 @Slf4j
@@ -22,7 +27,7 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 @Epic("Epic using the Parameterized Test")
 public class PetStoreTest {
 
-    private static final String BASE_URL = "https://petstore.swagger.io/v2";
+private HttpStatus statusCode1;
 
     @BeforeAll
     public static void setUp() {
@@ -33,6 +38,7 @@ public class PetStoreTest {
     @Story("Id da historia")
     @DisplayName("Name test Get Order ById")
     @Tag("RegressiveApi")
+    @Tag("my-tag-enable-linux-mac")
     @Description("Description test")
     void testGetOrderById() {
         Response response = given()
@@ -40,7 +46,7 @@ public class PetStoreTest {
                 .get("/store/order/1");
 
         Allure.step("Verificar se a resposta tem status 200");
-        response.then().statusCode(200);
+        response.then().statusCode(statusCode1.);
 
         Allure.step("Verificar se o ID do pedido é 1");
         response.then().body("id", equalTo(1));

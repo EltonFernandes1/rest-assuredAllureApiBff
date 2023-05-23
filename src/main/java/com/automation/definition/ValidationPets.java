@@ -19,10 +19,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 public abstract class ValidationPets {
 
     protected final static Configuration configuration = ConfigurationManager.getConfiguration();
-    /**
-     * See more assertions
-     * https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-assertions-with-hamcrest
-     */
     protected Response response;
 
     protected JsonPath jsonPath() {

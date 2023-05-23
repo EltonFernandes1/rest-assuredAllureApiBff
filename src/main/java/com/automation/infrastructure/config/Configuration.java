@@ -22,9 +22,6 @@ public interface Configuration extends Config {
     @Key("api.jsontest.uri")
     URI jsontestPath();
 
-    @Key("api.cep.uri")
-    URI cepPath();
-
     @Key("api.base.uri")
     String baseURI();
 
@@ -36,4 +33,10 @@ public interface Configuration extends Config {
 
     @Key("contract.extension")
     String contractExtension();
+
+    String BASE_URL = "https://petstore.swagger.io/v2";
+
+
+
+
 }

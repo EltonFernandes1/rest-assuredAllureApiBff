@@ -36,7 +36,6 @@ public class EnvironmentExtension implements BeforeAllCallback {
                 ImmutableMap.<String, String>builder()
                         .put("BFF", String.valueOf(configuration.jsontestPath()))
                         .put("URL", String.valueOf(configuration.baseURI()))
-                        .put("CEP", String.valueOf(configuration.cepPath()))
                         .put("ENVIRONMENT", env)
                         .build());
     }
