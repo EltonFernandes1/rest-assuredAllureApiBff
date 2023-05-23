@@ -2,8 +2,7 @@ package com.automation.test.apiService;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-
-import com.automation.infrastructure.config.EnvironmentBare;
+import com.automation.infrastructure.config.UrlEnvironment;
 import com.automation.infrastructure.config.ValidStatusCode;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
@@ -18,29 +17,26 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.api.Tag;
-
-import io.restassured.module.jsv.JsonSchemaValidator;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 
 @DisplayName("Exemplo Execucao API")
 @Slf4j
 @Epic("Epic using the Parameterized Test")
-@Epic("Epic using the Parameterized Test")
+@EnabledOnOs({OS.LINUX, OS.MAC, OS.WINDOWS})
 public class PetStoreTest {
-
-private HttpStatus statusCode1;
-
+    
     @BeforeAll
     public static void setUp() {
-        EnvironmentBare environment = EnvironmentBare.DEV;
+        UrlEnvironment environment = UrlEnvironment.DEV;
         RestAssured.baseURI = environment.getBaseUrl();
     }
 
     @Test
     @Story("Id da historia")
-    @DisplayName("Name test Get Order ById")
+    @DisplayName("Nome Display")
     @Tag("RegressiveApi")
-    @Tag("my-tag-enable-linux-mac")
     @Description("Description test")
     void testGetOrderById() {
         Response response = given()
@@ -81,7 +77,8 @@ private HttpStatus statusCode1;
                 .post("/store/order");
 
         Allure.step("Verificar se a resposta tem status 200");
-        response.then().statusCode(200);
+        ValidStatusCode statusCode = ValidStatusCode.OK;
+        response.then().statusCode(statusCode.getStatusCode());
         Allure.step("Verificar se o ID do pedido é 1");
         response.then().body("id", equalTo(1));
         Allure.step("Verificar se o status do pedido é 'placed'");
@@ -108,7 +105,8 @@ private HttpStatus statusCode1;
                 .post("/pet");
 
         Allure.step("Verificar se a resposta tem status 200");
-        response.then().statusCode(200);
+        ValidStatusCode statusCode = ValidStatusCode.OK;
+        response.then().statusCode(statusCode.getStatusCode());
 
         Allure.step("Verificar se o ID do pet é 1");
         response.then().body("id", equalTo(1));

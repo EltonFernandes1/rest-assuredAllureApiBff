@@ -14,11 +14,13 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 @DisplayName("Exemplo de teste usando RestAssured, JUnit 5 e Allure Para testa BFF")
 @Slf4j
-@Epic("Epic Projeto")
 @Epic("Epic using the Parameterized Test")
+@EnabledOnOs({OS.LINUX, OS.MAC, OS.WINDOWS})
 public class ExampleTest {
 
     private static final String BASE_URL = "https://bolsistabffservicosmobile.capes.gov.br";
