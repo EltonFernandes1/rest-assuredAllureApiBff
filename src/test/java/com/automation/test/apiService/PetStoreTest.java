@@ -4,12 +4,13 @@ import static com.automation.infrastructure.config.Configuration.BASE_URL;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-import com.automation.infrastructure.config.HttpStatus;
+import com.automation.infrastructure.config.ValidStatusCode;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 import org.junit.jupiter.api.*;
 import io.qameta.allure.Epic;
@@ -46,7 +47,8 @@ private HttpStatus statusCode1;
                 .get("/store/order/1");
 
         Allure.step("Verificar se a resposta tem status 200");
-        response.then().statusCode(statusCode1.);
+        ValidStatusCode statusCode = ValidStatusCode.OK;
+        response.then().statusCode(statusCode.getStatusCode());
 
         Allure.step("Verificar se o ID do pedido é 1");
         response.then().body("id", equalTo(1));
