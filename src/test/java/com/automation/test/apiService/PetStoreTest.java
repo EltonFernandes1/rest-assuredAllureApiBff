@@ -1,9 +1,9 @@
 package com.automation.test.apiService;
 
-import static com.automation.infrastructure.config.Configuration.BASE_URL;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import com.automation.infrastructure.config.EnvironmentBare;
 import com.automation.infrastructure.config.ValidStatusCode;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
@@ -32,7 +32,8 @@ private HttpStatus statusCode1;
 
     @BeforeAll
     public static void setUp() {
-        RestAssured.baseURI = BASE_URL;
+        EnvironmentBare environment = EnvironmentBare.DEV;
+        RestAssured.baseURI = environment.getBaseUrl();
     }
 
     @Test

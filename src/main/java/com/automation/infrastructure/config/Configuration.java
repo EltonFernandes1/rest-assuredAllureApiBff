@@ -34,7 +34,6 @@ public interface Configuration extends Config {
     @Key("contract.extension")
     String contractExtension();
 
-    String BASE_URL = "https://petstore.swagger.io/v2";
 
 
 

@@ -1,13 +1,13 @@
 package com.automation.infrastructure.config;
 
-public enum TestEnvironment {
+public enum EnvironmentBare {
     DEV("https://petstore.swagger.io/v2"),
-    QA(""),
-    PROD("");
+    QA("https://api.qa.example.com"),
+    PROD("https://api.example.com");
 
     private final String baseUrl;
 
-    TestEnvironment(String baseUrl) {
+    EnvironmentBare(String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
