@@ -1,0 +1,1 @@
+{"uuid":"478b2554-c16a-40aa-96af-8402544315c7","name":"Exemplo Execucao API","children":["c6266c2c-460d-4615-93e1-969d60dc12a5"],"befores":[{"name":"setUp","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1684860345319,"stop":1684860345872}],"afters":[],"start":1684860345293,"stop":1684860348680}
